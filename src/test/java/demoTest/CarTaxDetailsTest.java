@@ -54,18 +54,21 @@ public class CarTaxDetailsTest {
 		driver.findElement(By.name("Continue")).click();
 		driver.findElement(By.id("Correct_True")).click();
 		driver.findElement(By.name("Continue")).click();
-		String RegNo = driver.findElement(By.className("reg-mark")).getText();
-		assertEquals("Scenario failed", "ML58 KMA", RegNo);
+		String actualReg = driver.findElement(By.className("reg-mark")).getText();
+		String taxDue = driver.findElement(By.xpath("/html/body/main/div[2]/div[1]/div[1]/p/strong")).getText();
+		assertEquals("Scenario failed", "GU18 SCZ", actualReg);
+		assertEquals("Incorrect Tax details", "Tax due:\n" + "01 March 2019", taxDue);
 
 	}
 
 	@Test
+	@Ignore
 	public void testVehicleInformationUsingPageObject() {
 		driver.get("https://vehicleenquiry.service.gov.uk/");
-		checkRegistartion.enterRegistration().sendKeys("GU18 SCZ");
-		checkRegistartion.submitRegDetails().click();
-		confirmDetails.confirmRegDetails().click();
-		confirmDetails.submitRegDetails().click();
+		checkRegistartion.enterRegistrationNo("GU18 SCZ");
+		checkRegistartion.submitRegDetails();
+		confirmDetails.confirmRegDetails();
+		confirmDetails.submitRegDetails();
 		String actualReg = viewVehicleDetails.registrationNumberDetails().getText();
 		String taxDue = viewVehicleDetails.taxDueDetails().getText();
 		assertEquals("Scenario failed", "GU18 SCZ", actualReg);

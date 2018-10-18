@@ -15,12 +15,19 @@ public class CheckRegistrationNumber {
 	By registrationNumber = By.id("Vrm");
 	By submit = By.name("Continue");
 
-	public WebElement enterRegistration() {
+	public WebElement getRegistrationNo() {
 		return driver.findElement(registrationNumber);
 	}
+	public void enterRegistrationNo(String regNo) {
+		driver.findElement(registrationNumber).sendKeys(regNo);;
+	}
 
-	public WebElement submitRegDetails() {
+	public WebElement getsubmitRegDetails() {
 		return driver.findElement(submit);
+	}
+	
+	public void submitRegDetails() {
+		driver.findElement(submit).click();
 	}
 
 }

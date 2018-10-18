@@ -15,16 +15,20 @@ public class ConfirmDetails {
 	By confirmNo = By.id("Correct_False");
 	By submit = By.name("Continue");
 
-	public WebElement confirmRegDetails() {
+	public WebElement getconfirmRegDetails() {
 		return driver.findElement(confirmYes);
+	}
+	
+	public void confirmRegDetails() {
+		driver.findElement(confirmYes).click();
 	}
 
 	public WebElement incorrectRegDetails() {
 		return driver.findElement(confirmNo);
 	}
 
-	public WebElement submitRegDetails() {
-		return driver.findElement(submit);
+	public void submitRegDetails() {
+		driver.findElement(submit).click();
 	}
 
 }
