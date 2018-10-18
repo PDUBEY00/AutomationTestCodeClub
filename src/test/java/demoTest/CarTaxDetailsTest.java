@@ -50,7 +50,7 @@ public class CarTaxDetailsTest {
 		driver.get("https://www.gov.uk/get-vehicle-information-from-dvla");
 		driver.findElement(By.xpath("/html/body/div[5]/div[2]/main/div/div[1]/div/section[1]/p/a")).click();
 		System.out.println("Now entering value");
-		driver.findElement(By.id("Vrm")).sendKeys("ML58KMA");
+		driver.findElement(By.id("Vrm")).sendKeys("GU18SCZ");
 		driver.findElement(By.name("Continue")).click();
 		driver.findElement(By.id("Correct_True")).click();
 		driver.findElement(By.name("Continue")).click();
